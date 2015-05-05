@@ -52,6 +52,19 @@ router.route('/readings')
 		});
 	})
 
+	.get(function(req, res) {
+			
+			var reading = new Reading();		// create a new instance of the Reading model
+			reading.value = parseFloat(req.body.value);  // set the bears name (comes from the request)
+			reading.hid = req.body.hid;
+			reading.battery = req.body.battery;
+
+			reading.save(function(err) {
+				if (err)
+					res.send(err);
+				res.json({ message: 'reading created!' });
+			});
+		})
 
 
 router.route('/bears')
