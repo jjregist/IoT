@@ -51,27 +51,6 @@ router.route('/readings')
 			res.json({ message: 'reading created!' });
 		});
 	
-	.get(function(req, res) {
-			reading.find(function(err, readings) {
-				if (err)
-					res.send(err);
-
-				res.json(readings);
-			});
-		});
-		
-//  // get all the bears (accessed at GET http://localhost:8080/api/bears)
-//    .get(function(req, res) {
-//        Bear.find(function(err, bears) {
-//            if (err)
-//                res.send(err);
-//
-//           res.json(bears);
-//      });
-//   });
-
-//
-
 	})
 
 router.route('/bears')
