@@ -57,14 +57,9 @@ router.route('/readings/:hid')
     // get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
 
 	.get('/readings/:hid', function (req, res) {
-	    if (req.params.hid) {
-	        User.find({ hid: req.params.hid }, function (err, docs) {
-	            res.json(docs);
-	        });
-	    }
-		})
-
-
+		res.json({message:'you requested readings from an hid'})
+	    });
+		
 
 router.route('/bears')
 
