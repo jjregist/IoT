@@ -51,13 +51,13 @@ router.route('/readings')
 			res.json({ message: 'reading created!' });
 		});
 	
-	.get(function(req, res) {
-		Reading.find(function(err, readings) {
-			if (err)
-				res.send(err);
+	 .get(function(req, res) {
+        Bear.find(function(err, bears) {
+            if (err)
+                res.send(err);
 
-			res.json(readings);
-		});
+            res.json(bears);
+        });
 
 
 	})
