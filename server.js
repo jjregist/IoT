@@ -60,7 +60,7 @@ router.route('/readings')
         });
 
 
-	})
+
 
 
 
