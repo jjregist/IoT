@@ -53,17 +53,12 @@ router.route('/readings')
 	})
 
 	.get(function(req, res) {
-			
-			var reading = new Reading();		// create a new instance of the Reading model
-			reading.value = parseFloat(req.body.value);  // set the bears name (comes from the request)
-			reading.hid = req.body.hid;
-			reading.battery = req.body.battery;
+			Bear.find(function(err, bears) {
+			if (err)
+				res.send(err);
 
-			reading.save(function(err) {
-				if (err)
-					res.send(err);
-				res.json({ message: 'reading created!' });
-			});
+			res.json(bears);
+		});
 		})
 
 
