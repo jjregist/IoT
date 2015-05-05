@@ -50,7 +50,15 @@ router.route('/readings')
 				res.send(err);
 			res.json({ message: 'reading created!' });
 		});
+	
+	.get(function(req, res) {
+			reading.value(function(err, readings) {
+				if (err)
+					res.send(err);
 
+				res.json(readings);
+			});
+		});
 		
 	})
 
