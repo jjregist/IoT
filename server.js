@@ -59,7 +59,7 @@ router.route('/readings/:reading_hid')
         Reading.findById(req.params.hid, function(err, reading) {
             if (err)
                 res.send(err);
-            res.json(readings);
+            res.json(reading);
         });
     });
 
