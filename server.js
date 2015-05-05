@@ -41,7 +41,7 @@ router.route('/readings')
 	.post(function(req, res) {
 		
 		var reading = new Reading();		// create a new instance of the Reading model
-		reading.name = req.body.name;  // set the bears name (comes from the request)
+		reading.value = req.body.value;  // set the bears name (comes from the request)
 		reading.save(function(err) {
 			if (err)
 				res.send(err);
