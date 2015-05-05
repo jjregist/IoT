@@ -52,18 +52,6 @@ router.route('/readings')
 		});
 	})
 
-	.get(function(req, res) {
-        Bear.find(function(err, bears) {
-            if (err)
-                res.send(err);
-
-            res.json(bears);
-    });
-
-
-
-
-
 
 
 router.route('/bears')
