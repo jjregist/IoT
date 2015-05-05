@@ -50,14 +50,15 @@ router.route('/readings')
 				res.send(err);
 			res.json({ message: 'reading created!' });
 		});
-	
-	 .get(function(req, res) {
+	})
+
+	.get(function(req, res) {
         Bear.find(function(err, bears) {
             if (err)
                 res.send(err);
 
             res.json(bears);
-        });
+    });
 
 
 
