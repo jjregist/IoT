@@ -52,15 +52,17 @@ router.route('/readings')
 		});
 	})
 
-//grab readings by ID 
-	.get(function(req, res) {
-			Reading.find(function(err, reading.hid='dsd23') {
-			if (err)
-				res.send(err);
+router.route('/readings/:reading_hid')
 
-			res.json(readings);
-		});
-		})
+    // get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
+    .get(function(req, res) {
+        Reading.findById(req.params.hid, function(err, reading) {
+            if (err)
+                res.send(err);
+            res.json(readings);
+        });
+    });
+
 
 
 router.route('/bears')
@@ -81,15 +83,7 @@ router.route('/bears')
 		
 	})
 
-	// get all the bears (accessed at GET http://localhost:8080/api/bears)
-	.get(function(req, res) {
-		Bear.find(function(err, bears) {
-			if (err)
-				res.send(err);
 
-			res.json(bears);
-		});
-	});
 
 // REGISTER OUR ROUTES -------------------------------
 app.use('/api', router);
