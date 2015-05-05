@@ -52,11 +52,11 @@ router.route('/readings')
 		});
 	
 	.get(function(req, res) {
-			reading.value(function(err, readings) {
+			reading.value(function(err, reading) {
 				if (err)
 					res.send(err);
 
-				res.json(readings);
+				res.json(reading);
 			});
 		});
 		
