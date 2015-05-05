@@ -53,11 +53,11 @@ router.route('/readings')
 	})
 
 	.get(function(req, res) {
-			Bear.find(function(err, bears) {
+			Reading.find(function(err, readings) {
 			if (err)
 				res.send(err);
 
-			res.json(bears);
+			res.json(readings);
 		});
 		})
 
