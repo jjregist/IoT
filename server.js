@@ -52,15 +52,17 @@ router.route('/readings')
 		});
 	})
 
-router.route('/readings/:reading_hid')
+router.route('/readings/:hid')
 
     // get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
-	.get(function(req, res) {
-	       //what to do once the request is received 
-	       Reading.find({ hid: req.params.reading_hid }, function (err, stuff) {
-            res.json(stuff);
-	             
+
+	.get('/readings/:hid', function (req, res) {
+	    if (req.params.hid) {
+	        User.find({ hid: req.params.hid }, function (err, docs) {
+	            res.json(docs);
 	        });
+	    }
+		})
 
 
 
