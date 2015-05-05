@@ -3,7 +3,7 @@ var Schema       = mongoose.Schema;
 
 var ReadingSchema   = new Schema({
 	value: Number, 
-	modified: Date.now 
+	modified: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Reading', ReadingSchema);
