@@ -56,7 +56,10 @@ router.route('/readings/:reading_hid')
 
     // get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
 	.get(function(req, res) {
-	       res.json({ message: 'you requested the readings from a device' });
+	       //what to do once the request is received 
+	       Reading.find({ hid: req.params.reading_hid }, function (err, stuff) {
+            res.json(stuff);
+	             
 	        });
 
 
