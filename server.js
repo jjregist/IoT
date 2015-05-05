@@ -55,8 +55,6 @@ router.route('/readings')
 router.route('/readings/:hid')
 
 	.get(function(req, res) {
-		if(err)
-			res.send(err);
 		res.json({ message: 'hid reading requested' });
 		});
 	 
