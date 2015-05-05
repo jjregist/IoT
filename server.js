@@ -52,8 +52,9 @@ router.route('/readings')
 		});
 	})
 
+//grab readings by ID 
 	.get(function(req, res) {
-			Reading.find(function(err, readings) {
+			Reading.find(function(err, reading.hid='dsd23') {
 			if (err)
 				res.send(err);
 
