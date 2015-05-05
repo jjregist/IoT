@@ -50,7 +50,16 @@ router.route('/readings')
 				res.send(err);
 			res.json({ message: 'reading created!' });
 		});
-	})
+	}) 
+
+router.route('/readings/:hid')
+
+	.get(function(req, res) {
+		if(err)
+			res.send(err);
+		res.json({ message: 'hid reading requested' });
+		});
+	}) 
 
 
 router.route('/bears')
