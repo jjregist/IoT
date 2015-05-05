@@ -59,7 +59,7 @@ router.route('/readings/:hid')
 			res.send(err);
 		res.json({ message: 'hid reading requested' });
 		});
-	}) 
+	 
 
 
 router.route('/bears')
