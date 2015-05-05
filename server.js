@@ -47,7 +47,7 @@ router.route('/readings')
 			if (err)
 				res.send(err);
 
-			res.json({ message: 'reading created!' });
+			res.json({ message: 'reading created WHAMOO!' });
 		});
 
 		
