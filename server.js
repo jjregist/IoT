@@ -15,7 +15,7 @@ var port     = process.env.PORT || 8080; // set our port
 var mongoose   = require('mongoose');
 mongoose.connect('mongodb://e5user:d850mv20@ds031852.mongolab.com:31852/e5datastore'); // connect to our database
 var Bear     = require('./app/models/bear');
-var Reading = require('./app/models/reading');
+var Reading = require('./app/models/reading'); //pull in the Reading Schema 
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -37,17 +37,15 @@ router.get('/', function(req, res) {
 
 router.route('/readings')
 
-	// create a bear (accessed at POST http://localhost:8080/bears)
+	// create a reading (accessed at POST http://localhost:8080/readings)
 	.post(function(req, res) {
 		
-		var reading = new Reading();		// create a new instance of the Bear model
+		var reading = new Reading();		// create a new instance of the Reading model
 		reading.name = req.body.name;  // set the bears name (comes from the request)
-
 		reading.save(function(err) {
 			if (err)
 				res.send(err);
-
-			res.json({ message: 'reading created WHAMOO!' });
+			res.json({ message: 'reading created WHAMOOz!' });
 		});
 
 		
