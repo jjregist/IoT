@@ -51,7 +51,7 @@ router.route('/readings')
 			res.json({ message: 'reading created!' });
 		});
 	}) 
-
+//request all readings by a certain ID
 router.route('/readings/:hid')
 
 	.get(function(req, res) {
