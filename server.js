@@ -55,36 +55,11 @@ router.route('/readings')
 router.route('/readings/:hid')
 
 	.get(function(req, res) {
-		Reading.find(req.params.hid,function(err,readings) {
-			if (err)
-				res.send(err);
+	
+			res.json(req.params.hid);
 
-			res.json(readings);
-		});
-		
-		
 	});
 	 
-
-
-router.route('/bears')
- 
-	// create a bear (accessed at POST http://localhost:8080/bears)
-	.post(function(req, res) {
-		
-
-		var bear = new Bear();		// create a new instance of the Bear model
-		bear.name = req.body.name;  // set the bears name (comes from the request)
-
-		bear.save(function(err) {
-			if (err)
-				res.send(err);
-
-			res.json({ message: 'Bear created!' });
-		});
-
-		
-	})
 
 
 
