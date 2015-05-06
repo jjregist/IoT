@@ -55,9 +55,12 @@ router.route('/readings')
 router.route('/readings/:hid')
 
 	.get(function(req, res) {
-	
-			res.json(req.params.hid);
-
+		Reading.find({hid:req.params.hid}, function(err,readings){
+			if (err)
+				res.send(err);
+			res.json(readings);
+		});
+			
 	});
 	 
 
