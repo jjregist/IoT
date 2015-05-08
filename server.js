@@ -1,6 +1,5 @@
 
-app.set('view engine', 'jade');
-app.set('views', __dirname + '/views');
+
 
 // BASE SETUP
 // =============================================================================
@@ -9,6 +8,10 @@ app.set('views', __dirname + '/views');
 var express    = require('express');
 var bodyParser = require('body-parser');
 var app        = express();
+
+//configure jade and views
+app.set('view engine', 'jade');
+app.set('views', __dirname + '/views');
 
 // configure body parser
 app.use(bodyParser.urlencoded({ extended: true }));
