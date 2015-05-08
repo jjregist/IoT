@@ -20,22 +20,22 @@ var Reading = require('./app/models/reading'); //pull in the Reading Schema
 // ROUTES FOR OUR API
 // =============================================================================
 
-// create our router
-var router = express.Router();
+// create our router for the api
+var apirouter = express.Router();
 
 // middleware to use for all requests
-router.use(function(req, res, next) {
+apirouter.use(function(req, res, next) {
 	// do logging
 	console.log('Something is happening.');
 	next();
 });
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-router.get('/', function(req, res) {
+apirouter.get('/', function(req, res) {
 	res.json({ message: 'hooray! welcome to our api!' });	
 });
 
-router.route('/readings')
+apirouter.route('/readings')
 
 	// create a reading (accessed at POST http://localhost:8080/readings)
 	.post(function(req, res) {
@@ -52,7 +52,7 @@ router.route('/readings')
 		});
 	}) 
 //request all readings by a certain ID
-router.route('/readings/:hid')
+apirouter.route('/readings/:hid')
 
 	.get(function(req, res) {
 		Reading.find({hid:req.params.hid}, function(err,readings){
@@ -60,14 +60,11 @@ router.route('/readings/:hid')
 				res.send(err);
 			res.json(readings);
 		});
-			
+			 
 	});
-	 
-
-
-
+	  
 // REGISTER OUR ROUTES -------------------------------
-app.use('/api', router);
+app.use('/api', apirouter);
 
 // START THE SERVER
 // =============================================================================
