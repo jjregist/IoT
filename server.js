@@ -1,3 +1,7 @@
+
+app.set('view engine', 'jade');
+app.set('views', __dirname + '/views');
+
 // BASE SETUP
 // =============================================================================
 
@@ -33,7 +37,7 @@ webrouter.use(function(req,res,next) {
 });
 
 webrouter.get('/', function(req, res) {
-	res.json({ message: 'Welcome to our home directory' });	
+	res.render('index');	
 });
 
 app.use('/', webrouter);
