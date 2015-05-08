@@ -30,7 +30,6 @@ var webrouter = express.Router();
 webrouter.use(function(req,res,next) {
 	console.log('Web router has been called.');
 	next();
-}
 });
 
 webrouter.get('/', function(req, res) {
