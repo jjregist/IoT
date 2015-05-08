@@ -23,7 +23,27 @@ var Reading = require('./app/models/reading'); //pull in the Reading Schema
 // create our router for the api
 var apirouter = express.Router();
 
-// middleware to use for all requests
+//create a router for the web applciation; 
+var webrouter = express.Router();
+
+//web routes for web stuff  
+webrouter.use(function(req,res,next) {
+	console.log('Web router has been called.');
+	next();
+}
+});
+
+webrouter.get('/', function(req, res) {
+	res.json({ message: 'Welcome to our home directory' });	
+});
+
+app.use('/', webrouter);
+
+
+
+
+
+// middleware for all api requests
 apirouter.use(function(req, res, next) {
 	// do logging
 	console.log('Something is happening.');
@@ -51,6 +71,7 @@ apirouter.route('/readings')
 			res.json({ message: 'reading created!' });
 		});
 	}) 
+
 //request all readings by a certain ID
 apirouter.route('/readings/:hid')
 
